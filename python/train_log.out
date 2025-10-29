@@ -1,0 +1,156 @@
+nohup: ignoring input
+/home/kuautobot/miniconda3/envs/torch/lib/python3.11/site-packages/osgeo/gdal.py:330: FutureWarning: Neither gdal.UseExceptions() nor gdal.DontUseExceptions() has been explicitly called. In GDAL 4.0, exceptions will be enabled by default.
+  warnings.warn(
+/home/kuautobot/miniconda3/envs/torch/lib/python3.11/site-packages/torch/optim/lr_scheduler.py:62: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+[lstm] Epoch 1/50 train_loss=0.3855 val_loss=0.3811 lr=1.00e-03
+[lstm] Epoch 2/50 train_loss=0.3819 val_loss=0.3807 lr=1.00e-03
+[lstm] Epoch 3/50 train_loss=0.3816 val_loss=0.3808 lr=1.00e-03
+[lstm] Epoch 4/50 train_loss=0.3815 val_loss=0.3804 lr=1.00e-03
+[lstm] Epoch 5/50 train_loss=0.3814 val_loss=0.3806 lr=1.00e-03
+[lstm] Epoch 6/50 train_loss=0.3814 val_loss=0.3805 lr=1.00e-03
+[lstm] Epoch 7/50 train_loss=0.3813 val_loss=0.3804 lr=1.00e-03
+[lstm] Epoch 8/50 train_loss=0.3813 val_loss=0.3804 lr=1.00e-03
+[lstm] Epoch 9/50 train_loss=0.3812 val_loss=0.3805 lr=1.00e-03
+[lstm] Epoch 10/50 train_loss=0.3812 val_loss=0.3804 lr=1.00e-03
+[lstm] Epoch 11/50 train_loss=0.3812 val_loss=0.3804 lr=5.00e-04
+[lstm] Epoch 12/50 train_loss=0.3810 val_loss=0.3804 lr=5.00e-04
+[lstm] Epoch 13/50 train_loss=0.3810 val_loss=0.3804 lr=5.00e-04
+[lstm] Epoch 14/50 train_loss=0.3810 val_loss=0.3804 lr=5.00e-04
+[lstm] Epoch 15/50 train_loss=0.3810 val_loss=0.3803 lr=5.00e-04
+[lstm] Epoch 16/50 train_loss=0.3810 val_loss=0.3804 lr=5.00e-04
+[lstm] Epoch 17/50 train_loss=0.3809 val_loss=0.3804 lr=5.00e-04
+[lstm] Epoch 18/50 train_loss=0.3810 val_loss=0.3804 lr=5.00e-04
+[lstm] Epoch 19/50 train_loss=0.3810 val_loss=0.3804 lr=2.50e-04
+[lstm] Epoch 20/50 train_loss=0.3809 val_loss=0.3803 lr=2.50e-04
+[lstm] Epoch 21/50 train_loss=0.3809 val_loss=0.3803 lr=2.50e-04
+[lstm] Epoch 22/50 train_loss=0.3809 val_loss=0.3804 lr=2.50e-04
+[lstm] Epoch 23/50 train_loss=0.3809 val_loss=0.3803 lr=1.25e-04
+[lstm] Epoch 24/50 train_loss=0.3808 val_loss=0.3803 lr=1.25e-04
+[lstm] Epoch 25/50 train_loss=0.3808 val_loss=0.3803 lr=1.25e-04
+[lstm] Epoch 26/50 train_loss=0.3808 val_loss=0.3803 lr=1.25e-04
+[lstm] Epoch 27/50 train_loss=0.3808 val_loss=0.3803 lr=1.25e-04
+[lstm] Epoch 28/50 train_loss=0.3808 val_loss=0.3803 lr=1.25e-04
+[lstm] Epoch 29/50 train_loss=0.3808 val_loss=0.3803 lr=1.25e-04
+[lstm] Epoch 30/50 train_loss=0.3808 val_loss=0.3803 lr=1.25e-04
+[lstm] Epoch 31/50 train_loss=0.3808 val_loss=0.3803 lr=6.25e-05
+[lstm] Epoch 32/50 train_loss=0.3808 val_loss=0.3803 lr=6.25e-05
+[lstm] Epoch 33/50 train_loss=0.3808 val_loss=0.3803 lr=6.25e-05
+[lstm] Epoch 34/50 train_loss=0.3808 val_loss=0.3802 lr=6.25e-05
+[lstm] Epoch 35/50 train_loss=0.3808 val_loss=0.3803 lr=3.13e-05
+[lstm] Epoch 36/50 train_loss=0.3808 val_loss=0.3803 lr=3.13e-05
+[lstm] Epoch 37/50 train_loss=0.3808 val_loss=0.3802 lr=3.13e-05
+[lstm] Epoch 38/50 train_loss=0.3808 val_loss=0.3803 lr=3.13e-05
+[lstm] Epoch 39/50 train_loss=0.3808 val_loss=0.3803 lr=1.56e-05
+[lstm] Epoch 40/50 train_loss=0.3808 val_loss=0.3802 lr=1.56e-05
+[lstm] Epoch 41/50 train_loss=0.3808 val_loss=0.3803 lr=1.56e-05
+[lstm] Epoch 42/50 train_loss=0.3808 val_loss=0.3802 lr=1.56e-05
+[lstm] Epoch 43/50 train_loss=0.3808 val_loss=0.3802 lr=7.81e-06
+[lstm] Epoch 44/50 train_loss=0.3808 val_loss=0.3802 lr=7.81e-06
+[lstm] Epoch 45/50 train_loss=0.3808 val_loss=0.3802 lr=7.81e-06
+[lstm] Epoch 46/50 train_loss=0.3808 val_loss=0.3802 lr=7.81e-06
+[lstm] Epoch 47/50 train_loss=0.3808 val_loss=0.3802 lr=3.91e-06
+[lstm] Epoch 48/50 train_loss=0.3808 val_loss=0.3802 lr=3.91e-06
+[lstm] Epoch 49/50 train_loss=0.3808 val_loss=0.3802 lr=3.91e-06
+/media/kuautobot/DATA1/Modify/python/test.py:172: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  best_state=torch.load(f"model_{tag}_best.pt",map_location="cpu")
+[lstm] Epoch 50/50 train_loss=0.3807 val_loss=0.3802 lr=3.91e-06
+/home/kuautobot/miniconda3/envs/torch/lib/python3.11/site-packages/torch/optim/lr_scheduler.py:62: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+[bilstm_att] Epoch 1/50 train_loss=0.3839 val_loss=0.3806 lr=1.00e-03
+[bilstm_att] Epoch 2/50 train_loss=0.3816 val_loss=0.3806 lr=1.00e-03
+[bilstm_att] Epoch 3/50 train_loss=0.3814 val_loss=0.3805 lr=1.00e-03
+[bilstm_att] Epoch 4/50 train_loss=0.3812 val_loss=0.3805 lr=1.00e-03
+[bilstm_att] Epoch 5/50 train_loss=0.3811 val_loss=0.3805 lr=1.00e-03
+[bilstm_att] Epoch 6/50 train_loss=0.3811 val_loss=0.3806 lr=1.00e-03
+[bilstm_att] Epoch 7/50 train_loss=0.3811 val_loss=0.3806 lr=5.00e-04
+[bilstm_att] Epoch 8/50 train_loss=0.3809 val_loss=0.3804 lr=5.00e-04
+[bilstm_att] Epoch 9/50 train_loss=0.3808 val_loss=0.3804 lr=5.00e-04
+[bilstm_att] Epoch 10/50 train_loss=0.3808 val_loss=0.3805 lr=5.00e-04
+[bilstm_att] Epoch 11/50 train_loss=0.3808 val_loss=0.3803 lr=5.00e-04
+[bilstm_att] Epoch 12/50 train_loss=0.3808 val_loss=0.3805 lr=5.00e-04
+[bilstm_att] Epoch 13/50 train_loss=0.3808 val_loss=0.3803 lr=5.00e-04
+[bilstm_att] Epoch 14/50 train_loss=0.3808 val_loss=0.3803 lr=5.00e-04
+[bilstm_att] Epoch 15/50 train_loss=0.3808 val_loss=0.3803 lr=2.50e-04
+[bilstm_att] Epoch 16/50 train_loss=0.3807 val_loss=0.3803 lr=2.50e-04
+[bilstm_att] Epoch 17/50 train_loss=0.3807 val_loss=0.3803 lr=2.50e-04
+[bilstm_att] Epoch 18/50 train_loss=0.3807 val_loss=0.3803 lr=2.50e-04
+[bilstm_att] Epoch 19/50 train_loss=0.3807 val_loss=0.3803 lr=2.50e-04
+[bilstm_att] Epoch 20/50 train_loss=0.3807 val_loss=0.3803 lr=2.50e-04
+[bilstm_att] Epoch 21/50 train_loss=0.3807 val_loss=0.3802 lr=1.25e-04
+[bilstm_att] Epoch 22/50 train_loss=0.3807 val_loss=0.3802 lr=1.25e-04
+[bilstm_att] Epoch 23/50 train_loss=0.3807 val_loss=0.3802 lr=1.25e-04
+[bilstm_att] Epoch 24/50 train_loss=0.3807 val_loss=0.3803 lr=1.25e-04
+[bilstm_att] Epoch 25/50 train_loss=0.3807 val_loss=0.3803 lr=6.25e-05
+[bilstm_att] Epoch 26/50 train_loss=0.3806 val_loss=0.3802 lr=6.25e-05
+[bilstm_att] Epoch 27/50 train_loss=0.3806 val_loss=0.3802 lr=6.25e-05
+[bilstm_att] Epoch 28/50 train_loss=0.3806 val_loss=0.3802 lr=6.25e-05
+[bilstm_att] Epoch 29/50 train_loss=0.3806 val_loss=0.3802 lr=3.13e-05
+[bilstm_att] Epoch 30/50 train_loss=0.3806 val_loss=0.3802 lr=3.13e-05
+[bilstm_att] Epoch 31/50 train_loss=0.3806 val_loss=0.3802 lr=3.13e-05
+[bilstm_att] Epoch 32/50 train_loss=0.3806 val_loss=0.3802 lr=3.13e-05
+[bilstm_att] Epoch 33/50 train_loss=0.3806 val_loss=0.3802 lr=3.13e-05
+[bilstm_att] Epoch 34/50 train_loss=0.3806 val_loss=0.3802 lr=1.56e-05
+[bilstm_att] Epoch 35/50 train_loss=0.3806 val_loss=0.3802 lr=1.56e-05
+[bilstm_att] Epoch 36/50 train_loss=0.3806 val_loss=0.3802 lr=1.56e-05
+[bilstm_att] Epoch 37/50 train_loss=0.3806 val_loss=0.3802 lr=1.56e-05
+[bilstm_att] Epoch 38/50 train_loss=0.3806 val_loss=0.3802 lr=7.81e-06
+[bilstm_att] Epoch 39/50 train_loss=0.3806 val_loss=0.3802 lr=7.81e-06
+[bilstm_att] Epoch 40/50 train_loss=0.3806 val_loss=0.3802 lr=7.81e-06
+[bilstm_att] Epoch 41/50 train_loss=0.3806 val_loss=0.3802 lr=7.81e-06
+[bilstm_att] Epoch 42/50 train_loss=0.3806 val_loss=0.3802 lr=3.91e-06
+[bilstm_att] Epoch 43/50 train_loss=0.3806 val_loss=0.3802 lr=3.91e-06
+[bilstm_att] Epoch 44/50 train_loss=0.3806 val_loss=0.3802 lr=3.91e-06
+[bilstm_att] Epoch 45/50 train_loss=0.3806 val_loss=0.3802 lr=3.91e-06
+[bilstm_att] Epoch 46/50 train_loss=0.3806 val_loss=0.3802 lr=1.95e-06
+[bilstm_att] Epoch 47/50 train_loss=0.3806 val_loss=0.3802 lr=1.95e-06
+[bilstm_att] Epoch 48/50 train_loss=0.3806 val_loss=0.3802 lr=1.95e-06
+[bilstm_att] Epoch 49/50 train_loss=0.3806 val_loss=0.3802 lr=1.95e-06
+/media/kuautobot/DATA1/Modify/python/test.py:172: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  best_state=torch.load(f"model_{tag}_best.pt",map_location="cpu")
+[bilstm_att] Epoch 50/50 train_loss=0.3806 val_loss=0.3802 lr=9.77e-07
+/home/kuautobot/miniconda3/envs/torch/lib/python3.11/site-packages/torch/optim/lr_scheduler.py:62: UserWarning: The verbose parameter is deprecated. Please use get_last_lr() to access the learning rate.
+  warnings.warn(
+[transformer] Epoch 1/60 train_loss=0.3827 val_loss=0.3814 lr=8.00e-04
+[transformer] Epoch 2/60 train_loss=0.3814 val_loss=0.3808 lr=8.00e-04
+[transformer] Epoch 3/60 train_loss=0.3812 val_loss=0.3805 lr=8.00e-04
+[transformer] Epoch 4/60 train_loss=0.3810 val_loss=0.3809 lr=8.00e-04
+[transformer] Epoch 5/60 train_loss=0.3810 val_loss=0.3804 lr=8.00e-04
+[transformer] Epoch 6/60 train_loss=0.3809 val_loss=0.3806 lr=8.00e-04
+[transformer] Epoch 7/60 train_loss=0.3809 val_loss=0.3806 lr=8.00e-04
+[transformer] Epoch 8/60 train_loss=0.3809 val_loss=0.3807 lr=8.00e-04
+[transformer] Epoch 9/60 train_loss=0.3808 val_loss=0.3806 lr=4.00e-04
+[transformer] Epoch 10/60 train_loss=0.3806 val_loss=0.3803 lr=4.00e-04
+[transformer] Epoch 11/60 train_loss=0.3806 val_loss=0.3804 lr=4.00e-04
+[transformer] Epoch 12/60 train_loss=0.3806 val_loss=0.3804 lr=4.00e-04
+[transformer] Epoch 13/60 train_loss=0.3806 val_loss=0.3805 lr=4.00e-04
+[transformer] Epoch 14/60 train_loss=0.3806 val_loss=0.3804 lr=2.00e-04
+[transformer] Epoch 15/60 train_loss=0.3805 val_loss=0.3803 lr=2.00e-04
+[transformer] Epoch 16/60 train_loss=0.3805 val_loss=0.3803 lr=2.00e-04
+[transformer] Epoch 17/60 train_loss=0.3805 val_loss=0.3803 lr=2.00e-04
+[transformer] Epoch 18/60 train_loss=0.3805 val_loss=0.3803 lr=2.00e-04
+[transformer] Epoch 19/60 train_loss=0.3805 val_loss=0.3803 lr=2.00e-04
+[transformer] Epoch 20/60 train_loss=0.3805 val_loss=0.3803 lr=1.00e-04
+[transformer] Epoch 21/60 train_loss=0.3804 val_loss=0.3803 lr=1.00e-04
+[transformer] Epoch 22/60 train_loss=0.3804 val_loss=0.3803 lr=1.00e-04
+[transformer] Epoch 23/60 train_loss=0.3804 val_loss=0.3803 lr=1.00e-04
+[transformer] Epoch 24/60 train_loss=0.3804 val_loss=0.3803 lr=5.00e-05
+[transformer] Epoch 25/60 train_loss=0.3804 val_loss=0.3802 lr=5.00e-05
+[transformer] Epoch 26/60 train_loss=0.3804 val_loss=0.3802 lr=5.00e-05
+[transformer] Epoch 27/60 train_loss=0.3804 val_loss=0.3802 lr=5.00e-05
+[transformer] Epoch 28/60 train_loss=0.3804 val_loss=0.3803 lr=2.50e-05
+[transformer] Epoch 29/60 train_loss=0.3804 val_loss=0.3802 lr=2.50e-05
+[transformer] Epoch 30/60 train_loss=0.3804 val_loss=0.3802 lr=2.50e-05
+[transformer] Epoch 31/60 train_loss=0.3804 val_loss=0.3802 lr=2.50e-05
+[transformer] Epoch 32/60 train_loss=0.3804 val_loss=0.3802 lr=2.50e-05
+[transformer] Epoch 33/60 train_loss=0.3804 val_loss=0.3802 lr=1.25e-05
+[transformer] Epoch 34/60 train_loss=0.3804 val_loss=0.3802 lr=1.25e-05
+[transformer] Epoch 35/60 train_loss=0.3804 val_loss=0.3802 lr=1.25e-05
+[transformer] Epoch 36/60 train_loss=0.3804 val_loss=0.3802 lr=1.25e-05
+[transformer] Epoch 37/60 train_loss=0.3804 val_loss=0.3802 lr=6.25e-06
+[transformer] Epoch 38/60 train_loss=0.3804 val_loss=0.3802 lr=6.25e-06
+[transformer] Epoch 39/60 train_loss=0.3804 val_loss=0.3802 lr=6.25e-06
+/media/kuautobot/DATA1/Modify/python/test.py:172: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  best_state=torch.load(f"model_{tag}_best.pt",map_location="cpu")
+[transformer] Epoch 40/60 train_loss=0.3804 val_loss=0.3802 lr=6.25e-06
+[transformer] Early stop at epoch 40
