@@ -82,6 +82,16 @@
 <p align="center"><b>Confusion Matrix</b></p>
 <p align="center"><img src="Result/confusion_matrix_lstm.png" width="70%"></p>
 
+flowchart LR
+    A[Input Sequence\nX ∈ R^(B × T × 2)\n(SAVI, MNDWI)] --> A1[Optional: Normalize/Standardize\nper-channel]
+    A1 --> B[LSTM Layer\nhidden=h, layers=L, batch_first=True]
+    B --> C[Hidden/Cell States (h_t, c_t)]
+    C --> C1[Select Last Hidden State\nh_T ∈ R^(B × h)]
+    C1 --> D[Dropout (p)]
+    D --> E[Dense (Linear)\nR^(h → 1)]
+    E --> F[Sigmoid]
+    F --> G[Output: p(Forest)\nThreshold → Forest/Other]
+
 ---
 
 #### 2. BiLSTM + Attention
@@ -95,6 +105,18 @@
 <p align="center"><b>Confusion Matrix</b></p>
 <p align="center"><img src="Result/confusion_matrix_bilstm_att.png" width="70%"></p>
 
+flowchart LR
+    A[Input Sequence\nX ∈ R^(B × T × 2)] --> A1[Optional: Normalize/Standardize]
+    A1 --> B[Bidirectional LSTM\nhidden=h, layers=L]
+    B --> C[Concat Hidden States per time step\nH ∈ R^(B × T × 2h)]
+    C --> D[Attention Score per t\ns_t = v^T tanh(W·H_t)]
+    D --> E[Softmax over time\nα_t = softmax(s_t)]
+    E --> F[Weighted Sum (Context)\nC = Σ α_t · H_t ∈ R^(B × 2h)]
+    F --> G[Dropout (p)]
+    G --> H[Dense (Linear)\nR^(2h → 1)]
+    H --> I[Sigmoid]
+    I --> J[Output: p(Forest)\nThreshold → Forest/Other]
+
 ---
 
 #### 3. Transformer Encoder
@@ -107,6 +129,22 @@
 
 <p align="center"><b>Confusion Matrix</b></p>
 <p align="center"><img src="Result/confusion_matrix_transformer.png" width="70%"></p>
+
+flowchart LR
+    A[Input Sequence\nX ∈ R^(B × T × 2)] --> A1[Linear Projection / Embedding\nR^(2 → d_model)]
+    A1 --> B[Add Positional Encoding\nPE ∈ R^(T × d_model)]
+    B --> C[Encoder Layer × N]
+    subgraph Encoder Layer
+        C1[Multi-Head Self-Attention\nheads=h_mhsa] --> C2[Add & LayerNorm]
+        C2 --> C3[Feed Forward Network (FFN)\nGeLU/ReLU]
+        C3 --> C4[Add & LayerNorm]
+    end
+    C --> D[Pooling over time\nMean Pooling → z ∈ R^(B × d_model)]
+    D --> E[Dropout (p)]
+    E --> F[Dense (Linear)\nR^(d_model → 1)]
+    F --> G[Sigmoid]
+    G --> H[Output: p(Forest)\nThreshold → Forest/Other]
+
 
 ---
 
