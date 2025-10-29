@@ -44,20 +44,9 @@
 
 ### 4.1 สถาปัตยกรรมโมเดล
 
-#### LSTM Classifier (LSTMCls)
-อ่านข้อมูลเรียงลำดับจากเดือนที่ 1 ไปเดือนที่ 12  
-ใช้ hidden state สุดท้ายเป็นตัวแทนทั้งซีรีส์  
-เป็น baseline ที่เรียบง่ายและฝึกได้รวดเร็ว
-
-#### Bidirectional LSTM + Attention (BiLSTMAtt)
-อ่านข้อมูลสองทิศทาง (forward และ backward)  
-ใช้กลไก Attention เพื่อเน้นเดือนที่สำคัญที่สุด  
-สามารถจับบริบททั้งอดีตและอนาคตได้ดีกว่า
-
-#### Transformer Encoder (TransEnc)
-ใช้ Self-Attention เพื่อดูความสัมพันธ์ระหว่างทุกเดือนพร้อมกัน  
-ใช้ Mean Pooling เพื่อสรุปผลทั้งอนุกรมเวลา  
-สถาปัตยกรรมที่เป็น State-of-the-Art ใน Time-Series Learning
+- LSTM Classifier (LSTMCls)  
+- Bidirectional LSTM + Attention (BiLSTMAtt)  
+- Transformer Encoder (TransEnc)
 
 ---
 
@@ -83,38 +72,41 @@
 ### ภาพรวมผลลัพธ์แต่ละโมเดล
 
 #### 1. LSTM
-**Loss Curve**
-![Loss Curve LSTM](Result/loss_curve_lstm.png)
 
-**ROC Curve**
-![ROC Curve LSTM](Result/roc_curve_lstm.png)
+<p align="center"><b>Loss Curve</b></p>
+<p align="center"><img src="Result/loss_curve_lstm.png" width="70%"></p>
 
-**Confusion Matrix**
-![Confusion Matrix LSTM](Result/confusion_matrix_lstm.png)
+<p align="center"><b>ROC Curve</b></p>
+<p align="center"><img src="Result/roc_curve_lstm.png" width="70%"></p>
+
+<p align="center"><b>Confusion Matrix</b></p>
+<p align="center"><img src="Result/confusion_matrix_lstm.png" width="70%"></p>
 
 ---
 
 #### 2. BiLSTM + Attention
-**Loss Curve**
-![Loss Curve BiLSTM+Att](Result/loss_curve_bilstm_att.png)
 
-**ROC Curve**
-![ROC Curve BiLSTM+Att](Result/roc_curve_bilstm_att.png)
+<p align="center"><b>Loss Curve</b></p>
+<p align="center"><img src="Result/loss_curve_bilstm_att.png" width="70%"></p>
 
-**Confusion Matrix**
-![Confusion Matrix BiLSTM+Att](Result/confusion_matrix_bilstm_att.png)
+<p align="center"><b>ROC Curve</b></p>
+<p align="center"><img src="Result/roc_curve_bilstm_att.png" width="70%"></p>
+
+<p align="center"><b>Confusion Matrix</b></p>
+<p align="center"><img src="Result/confusion_matrix_bilstm_att.png" width="70%"></p>
 
 ---
 
 #### 3. Transformer Encoder
-**Loss Curve**
-![Loss Curve Transformer](Result/loss_curve_transformer.png)
 
-**ROC Curve**
-![ROC Curve Transformer](Result/roc_curve_transformer.png)
+<p align="center"><b>Loss Curve</b></p>
+<p align="center"><img src="Result/loss_curve_transformer.png" width="70%"></p>
 
-**Confusion Matrix**
-![Confusion Matrix Transformer](Result/confusion_matrix_transformer.png)
+<p align="center"><b>ROC Curve</b></p>
+<p align="center"><img src="Result/roc_curve_transformer.png" width="70%"></p>
+
+<p align="center"><b>Confusion Matrix</b></p>
+<p align="center"><img src="Result/confusion_matrix_transformer.png" width="70%"></p>
 
 ---
 
