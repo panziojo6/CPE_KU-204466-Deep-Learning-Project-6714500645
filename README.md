@@ -42,17 +42,103 @@
 
 ## 4. วิธีการทดลอง (Methodology)
 
-### 4.1 สถาปัตยกรรมโมเดล (Model Architectures)
+### 4.1 สถาปัตยกรรมโมเดล
 
-#### 1. LSTM Classifier
+- LSTM Classifier (LSTMCls)  
+- Bidirectional LSTM + Attention (BiLSTMAtt)  
+- Transformer Encoder (TransEnc)
 
-```mermaid
-flowchart LR
-    A[Input Sequence\nX ∈ R^(B × T × 2)\n(SAVI, MNDWI)] --> A1[Optional: Normalize/Standardize\nper-channel]
-    A1 --> B[LSTM Layer\nhidden=h, layers=L, batch_first=True]
-    B --> C[Hidden/Cell States (h_t, c_t)]
-    C --> C1[Select Last Hidden State\nh_T ∈ R^(B × h)]
-    C1 --> D[Dropout (p)]
-    D --> E[Dense (Linear)\nR^(h → 1)]
-    E --> F[Sigmoid]
-    F --> G[Output: p(Forest)\nThreshold → Forest/Other]
+---
+
+### 4.2 การตั้งค่าการฝึก
+- Loss: Binary Cross-Entropy  
+- Optimizer: Adam  
+- Metrics: Accuracy, Precision, Recall, F1, AUC  
+- Validation Strategy: Early stopping based on validation F1  
+- Sampling: Balanced sampling per epoch  
+
+---
+
+## 5. ผลลัพธ์ (Results)
+
+| Model | Accuracy | Precision | Recall | F1 | AUC |
+|:--|--:|--:|--:|--:|--:|
+| LSTM | 0.8476 | 0.8154 | 0.8985 | 0.8550 | 0.8979 |
+| BiLSTM+Att | 0.8476 | 0.8156 | 0.8984 | 0.8549 | 0.8979 |
+| Transformer | 0.8476 | 0.8159 | 0.8977 | 0.8549 | 0.8979 |
+
+---
+
+### ภาพรวมผลลัพธ์แต่ละโมเดล
+
+#### 1. LSTM
+
+<p align="center"><b>Loss Curve</b></p>
+<p align="center"><img src="Result/loss_curve_lstm.png" width="70%"></p>
+
+<p align="center"><b>ROC Curve</b></p>
+<p align="center"><img src="Result/roc_curve_lstm.png" width="70%"></p>
+
+<p align="center"><b>Confusion Matrix</b></p>
+<p align="center"><img src="Result/confusion_matrix_lstm.png" width="70%"></p>
+
+
+---
+
+#### 2. BiLSTM + Attention
+
+<p align="center"><b>Loss Curve</b></p>
+<p align="center"><img src="Result/loss_curve_bilstm_att.png" width="70%"></p>
+
+<p align="center"><b>ROC Curve</b></p>
+<p align="center"><img src="Result/roc_curve_bilstm_att.png" width="70%"></p>
+
+<p align="center"><b>Confusion Matrix</b></p>
+<p align="center"><img src="Result/confusion_matrix_bilstm_att.png" width="70%"></p>
+
+---
+
+#### 3. Transformer Encoder
+
+<p align="center"><b>Loss Curve</b></p>
+<p align="center"><img src="Result/loss_curve_transformer.png" width="70%"></p>
+
+<p align="center"><b>ROC Curve</b></p>
+<p align="center"><img src="Result/roc_curve_transformer.png" width="70%"></p>
+
+<p align="center"><b>Confusion Matrix</b></p>
+<p align="center"><img src="Result/confusion_matrix_transformer.png" width="70%"></p>
+
+---
+
+## 6. การวิเคราะห์ผลลัพธ์ (Analysis)
+
+- ลายเซ็นเชิงฤดูกาลของป่าไม้มีความชัดเจนมาก ทำให้ LSTM แบบมาตรฐานสามารถเรียนรู้ได้ครบถ้วน  
+- ความซับซ้อนเพิ่มเติม (เช่น Attention หรือ Self-Attention) ไม่เพิ่มประสิทธิภาพอย่างมีนัยสำคัญ  
+- การเลือกโมเดลจึงควรยึดหลัก Occam’s Razor — ใช้โมเดลที่เรียบง่ายที่สุดที่ให้ผลดีเท่ากัน
+
+---
+
+## 7. ข้อจำกัด (Limitations)
+
+- ใช้เพียง 2 ดัชนี (SAVI, MNDWI) อาจไม่ครอบคลุมลักษณะของป่าทุกประเภท  
+- ข้อมูลรายเดือนอาจไม่ละเอียดพอสำหรับเหตุการณ์ระยะสั้น  
+- การนิยามคลาสจาก LULC อาจมี noise จากการจัดหมวดหมู่เชิงภูมิสารสนเทศ
+
+---
+
+## 8. แนวทางต่อยอด (Future Work)
+
+1. เพิ่มตัวแปรจากดาวเทียมอื่น เช่น NDVI, EVI, LST, Rainfall  
+2. ทดลองข้อมูลอนุกรมเวลาที่ละเอียดกว่า (ราย 10 วัน หรือราย 16 วัน)  
+3. ใช้โมเดลเชิงพื้นที่–เวลา (Spatio-Temporal) เช่น ConvLSTM  
+4. ทดสอบข้ามปีหรือข้ามพื้นที่ เพื่อประเมินความสามารถในการ generalize  
+
+---
+
+Punnawit Korosri 6714500645  
+Forest Classification using Time-Series Satellite Indices with Deep Learning Models  
+Department of Computer Engineering, Kasetsart University, 2025  
+
+Repository:  
+CPE_KU-204466-Deep-Learning-Project-6714500645
