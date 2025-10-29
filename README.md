@@ -1,26 +1,25 @@
 # CPE_KU-204466 Deep Learning Project  
-## การจำแนกป่าไม้โดยใช้ข้อมูล Time series จากดาวเทียม
+## การจำแนกป่าไม้โดยใช้ข้อมูล Time Series จากดาวเทียม
 
 ### รายละเอียดโครงการ
-โปรเจกต์นี้เป็นการทดลอง **จำแนกพื้นที่ป่าไม้ (Forest)** ออกจาก **พื้นที่อื่น (Other)** โดยใช้ข้อมูลอนุกรมเวลาจากดัชนีดาวเทียมรายเดือน (SAVI และ MNDWI) เป็นข้อมูลนำเข้าให้กับโมเดล Deep Learning 3 รูปแบบ ได้แก่  
-- **LSTM (Baseline)**  
-- **Bidirectional LSTM + Attention**  
-- **Transformer Encoder**
+โปรเจกต์นี้เป็นการทดลองจำแนกพื้นที่ป่าไม้ (Forest) ออกจากพื้นที่อื่น (Other) โดยใช้ข้อมูลอนุกรมเวลาจากดัชนีดาวเทียมรายเดือน (SAVI และ MNDWI) เป็นข้อมูลนำเข้าให้กับโมเดล Deep Learning 3 รูปแบบ ได้แก่  
+- LSTM (Baseline)  
+- Bidirectional LSTM + Attention  
+- Transformer Encoder
 
 ---
 
-## 1️ ปัญหา (Problem)
+## 1. ปัญหา (Problem)
 
-การจำแนกพื้นที่ป่าไม้จากข้อมูลดาวเทียมแบบอนุกรมเวลาเป็นโจทย์ที่มีความท้าทาย เนื่องจากโมเดลต้องสามารถเรียนรู้ **ลายเซ็นเชิงฤดูกาล (seasonal signatures)**
-(seasonal signatures) ของพืชพรรณ เช่น ช่วงที่ค่าดัชนี SAVI สูงสุดในฤดูฝน หรือการเปลี่ยนแปลงของค่าดัชนีน้ำในหน้าแล้ง
+การจำแนกพื้นที่ป่าไม้จากข้อมูลดาวเทียมแบบอนุกรมเวลาเป็นโจทย์ที่มีความท้าทาย เนื่องจากโมเดลต้องสามารถเรียนรู้ **ลายเซ็นเชิงฤดูกาล (seasonal signatures)** ของพืชพรรณ เช่น ช่วงที่ค่าดัชนี SAVI สูงสุดในฤดูฝน หรือการเปลี่ยนแปลงของค่าดัชนีน้ำในหน้าแล้ง
 
-นอกจากนี้ยังมีปัญหา **Data Imbalance** — จำนวนพิกเซลที่เป็นป่าไม้มักน้อยกว่าพื้นที่อื่น จึงต้องใช้วิธี **Balanced Sampling** เพื่อป้องกันโมเดลเอนเอียงไปทางคลาสที่มีจำนวนมากกว่า
+นอกจากนี้ยังมีปัญหา Data Imbalance — จำนวนพิกเซลที่เป็นป่าไม้มักน้อยกว่าพื้นที่อื่น จึงต้องใช้วิธี Balanced Sampling เพื่อป้องกันโมเดลเอนเอียงไปทางคลาสที่มีจำนวนมากกว่า
 
 ---
 
-## 2️ วัตถุประสงค์ (Objectives)
+## 2. วัตถุประสงค์ (Objectives)
 
-1. สร้างโมเดล Deep Learning สำหรับจำแนกพิกเซลเป็น **Forest หรือ Other**  
+1. สร้างโมเดล Deep Learning สำหรับจำแนกพิกเซลเป็น Forest หรือ Other  
 2. เปรียบเทียบประสิทธิภาพของสถาปัตยกรรม 3 รูปแบบ  
    - LSTM  
    - BiLSTM + Attention  
@@ -29,72 +28,105 @@
 
 ---
 
-## 3️ ข้อมูลและการเตรียมข้อมูล (Data Description)
+## 3. ข้อมูลและการเตรียมข้อมูล (Data Description)
 
 | รายการ | รายละเอียด |
 |:--|:--|
-| **Label (y)** | จากแผนที่ LULC โดยกำหนดว่า `LULC > 6000  Forest (1)`, อื่น ๆ  Other (0) |
-| **Features (X)** | ข้อมูลดัชนีดาวเทียมรายเดือน 2 ตัว: SAVI, MNDWI |
-| **รูปแบบข้อมูล** | `(จำนวนพิกเซล, จำนวนเดือน, 2)` เช่น `(N, 12, 2)` |
-| **สมดุลข้อมูล** | ใช้ Balanced Sampling ระหว่างคลาสในชุด train |
-| **ช่วงเวลา** | 12 เดือน (อนุกรมเวลารายเดือน 1 ปี) |
+| Label (y) | จากแผนที่ LULC โดยกำหนดว่า LULC > 6000 → Forest (1), อื่น ๆ → Other (0) |
+| Features (X) | ข้อมูลดัชนีดาวเทียมรายเดือน 2 ตัว: SAVI, MNDWI |
+| รูปแบบข้อมูล | (จำนวนพิกเซล, จำนวนเดือน, 2) เช่น (N, 12, 2) |
+| สมดุลข้อมูล | ใช้ Balanced Sampling ระหว่างคลาสในชุด train |
+| ช่วงเวลา | 12 เดือน (อนุกรมเวลารายเดือน 1 ปี) |
 
 ---
 
-## 4️ วิธีการทดลอง (Methodology)
+## 4. วิธีการทดลอง (Methodology)
 
 ### 4.1 สถาปัตยกรรมโมเดล
 
-#### LSTM Classifier (`LSTMCls`)
-- อ่านข้อมูลเรียงลำดับจากเดือนที่ 1 ไป เดือนที่ 12  
-- ใช้ hidden state สุดท้ายเป็นตัวแทนทั้งซีรีส์  
-- เป็น baseline ที่เรียบง่ายและฝึกได้รวดเร็ว
+#### LSTM Classifier (LSTMCls)
+อ่านข้อมูลเรียงลำดับจากเดือนที่ 1 ไปเดือนที่ 12  
+ใช้ hidden state สุดท้ายเป็นตัวแทนทั้งซีรีส์  
+เป็น baseline ที่เรียบง่ายและฝึกได้รวดเร็ว
 
-#### Bidirectional LSTM + Attention (`BiLSTMAtt`)
-- อ่านข้อมูลสองทิศทาง (forward และ backward)  
-- ใช้กลไก Attention เพื่อ “เน้น” เดือนที่สำคัญที่สุด  
-- สามารถจับบริบททั้งอดีตและอนาคตได้ดีกว่า
+#### Bidirectional LSTM + Attention (BiLSTMAtt)
+อ่านข้อมูลสองทิศทาง (forward และ backward)  
+ใช้กลไก Attention เพื่อเน้นเดือนที่สำคัญที่สุด  
+สามารถจับบริบททั้งอดีตและอนาคตได้ดีกว่า
 
-#### Transformer Encoder (`TransEnc`)
-- ใช้ Self-Attention เพื่อดูความสัมพันธ์ระหว่างทุกเดือนพร้อมกัน  
-- ใช้ mean pooling เพื่อสรุปผลทั้งอนุกรมเวลา  
-- สถาปัตยกรรมที่เป็น State-of-the-Art ใน Time-Series Learning
-
----
-
-###  4.2 การตั้งค่าการฝึก
-- **Loss:** Binary Cross-Entropy  
-- **Optimizer:** Adam  
-- **Metrics:** Accuracy, Precision, Recall, F1, AUC  
-- **Validation Strategy:** Early stopping based on validation F1  
-- **Sampling:** Balanced sampling per epoch  
+#### Transformer Encoder (TransEnc)
+ใช้ Self-Attention เพื่อดูความสัมพันธ์ระหว่างทุกเดือนพร้อมกัน  
+ใช้ Mean Pooling เพื่อสรุปผลทั้งอนุกรมเวลา  
+สถาปัตยกรรมที่เป็น State-of-the-Art ใน Time-Series Learning
 
 ---
 
-## 5️ ผลลัพธ์ (Results)
+### 4.2 การตั้งค่าการฝึก
+- Loss: Binary Cross-Entropy  
+- Optimizer: Adam  
+- Metrics: Accuracy, Precision, Recall, F1, AUC  
+- Validation Strategy: Early stopping based on validation F1  
+- Sampling: Balanced sampling per epoch  
+
+---
+
+## 5. ผลลัพธ์ (Results)
 
 | Model | Accuracy | Precision | Recall | F1 | AUC |
 |:--|--:|--:|--:|--:|--:|
-| **LSTM** | 0.8476 | 0.8154 | 0.8985 | **0.8550** | 0.8979 |
-| **BiLSTM+Att** | 0.8476 | 0.8156 | 0.8984 | 0.8549 | 0.8979 |
-| **Transformer** | 0.8476 | 0.8159 | 0.8977 | 0.8549 | 0.8979 |
-
- **สรุปผล:**  
-- ค่าตัวชี้วัด (F1 ≈ 0.855, AUC ≈ 0.898) ของทั้งสามโมเดล “แทบไม่ต่างกัน”  
-- โมเดลที่ง่ายที่สุด (`LSTMCls`) ให้ผลลัพธ์เทียบเท่ากับโมเดลซับซ้อนกว่า  
-- ไม่พบความแตกต่างที่มีนัยสำคัญทางสถิติ
+| LSTM | 0.8476 | 0.8154 | 0.8985 | 0.8550 | 0.8979 |
+| BiLSTM+Att | 0.8476 | 0.8156 | 0.8984 | 0.8549 | 0.8979 |
+| Transformer | 0.8476 | 0.8159 | 0.8977 | 0.8549 | 0.8979 |
 
 ---
 
-## 6️ การวิเคราะห์ผลลัพธ์ (Analysis)
+### ภาพรวมผลลัพธ์แต่ละโมเดล
+
+#### 1. LSTM
+**Loss Curve**
+![Loss Curve LSTM](Result/loss_curve_lstm.png)
+
+**ROC Curve**
+![ROC Curve LSTM](Result/roc_curve_lstm.png)
+
+**Confusion Matrix**
+![Confusion Matrix LSTM](Result/confusion_matrix_lstm.png)
+
+---
+
+#### 2. BiLSTM + Attention
+**Loss Curve**
+![Loss Curve BiLSTM+Att](Result/loss_curve_bilstm_att.png)
+
+**ROC Curve**
+![ROC Curve BiLSTM+Att](Result/roc_curve_bilstm_att.png)
+
+**Confusion Matrix**
+![Confusion Matrix BiLSTM+Att](Result/confusion_matrix_bilstm_att.png)
+
+---
+
+#### 3. Transformer Encoder
+**Loss Curve**
+![Loss Curve Transformer](Result/loss_curve_transformer.png)
+
+**ROC Curve**
+![ROC Curve Transformer](Result/roc_curve_transformer.png)
+
+**Confusion Matrix**
+![Confusion Matrix Transformer](Result/confusion_matrix_transformer.png)
+
+---
+
+## 6. การวิเคราะห์ผลลัพธ์ (Analysis)
 
 - ลายเซ็นเชิงฤดูกาลของป่าไม้มีความชัดเจนมาก ทำให้ LSTM แบบมาตรฐานสามารถเรียนรู้ได้ครบถ้วน  
-- ความซับซ้อนเพิ่มเติม (เช่น Attention หรือ Self-Attention) **ไม่เพิ่มประสิทธิภาพอย่างมีนัยสำคัญ**  
-- การเลือกโมเดลจึงควรยึดหลัก **Occam’s Razor** — ใช้โมเดลที่เรียบง่ายที่สุดที่ให้ผลดีเท่ากัน
+- ความซับซ้อนเพิ่มเติม (เช่น Attention หรือ Self-Attention) ไม่เพิ่มประสิทธิภาพอย่างมีนัยสำคัญ  
+- การเลือกโมเดลจึงควรยึดหลัก Occam’s Razor — ใช้โมเดลที่เรียบง่ายที่สุดที่ให้ผลดีเท่ากัน
 
 ---
 
-## 7️ ข้อจำกัด (Limitations)
+## 7. ข้อจำกัด (Limitations)
 
 - ใช้เพียง 2 ดัชนี (SAVI, MNDWI) อาจไม่ครอบคลุมลักษณะของป่าทุกประเภท  
 - ข้อมูลรายเดือนอาจไม่ละเอียดพอสำหรับเหตุการณ์ระยะสั้น  
@@ -102,21 +134,18 @@
 
 ---
 
-## 8️ แนวทางต่อยอด (Future Work)
+## 8. แนวทางต่อยอด (Future Work)
 
 1. เพิ่มตัวแปรจากดาวเทียมอื่น เช่น NDVI, EVI, LST, Rainfall  
-2. ทดลองข้อมูลอนุกรมเวลาที่ละเอียดกว่า (ราย 10 วัน / ราย 16 วัน)  
+2. ทดลองข้อมูลอนุกรมเวลาที่ละเอียดกว่า (ราย 10 วัน หรือราย 16 วัน)  
 3. ใช้โมเดลเชิงพื้นที่–เวลา (Spatio-Temporal) เช่น ConvLSTM  
-4. ทดสอบข้ามปี / ข้ามพื้นที่ เพื่อประเมินความสามารถในการ generalize  
+4. ทดสอบข้ามปีหรือข้ามพื้นที่ เพื่อประเมินความสามารถในการ generalize  
 
 ---
 
+Punnawit Korosri 6714500645  
+Forest Classification using Time-Series Satellite Indices with Deep Learning Models  
+Department of Computer Engineering, Kasetsart University, 2025  
 
-> Punnawit Korosri 6714500645 MCPE, *“Forest Classification using Time-Series Satellite Indices with Deep Learning Models,”*  
-> Department of Computer Engineering, Kasetsart University, 2025.
-
----
-
-
-
-# CPE_KU-204466-Deep-Learning-Project-6714500645
+Repository:  
+CPE_KU-204466-Deep-Learning-Project-6714500645
