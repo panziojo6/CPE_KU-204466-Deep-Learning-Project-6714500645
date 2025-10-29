@@ -112,7 +112,7 @@
 ---
 
 
-> Punnawit Korosri, *“Forest Classification using Time-Series Satellite Indices with Deep Learning Models,”*  
+> Punnawit Korosri 6714500645 MCPE, *“Forest Classification using Time-Series Satellite Indices with Deep Learning Models,”*  
 > Department of Computer Engineering, Kasetsart University, 2025.
 
 ---
