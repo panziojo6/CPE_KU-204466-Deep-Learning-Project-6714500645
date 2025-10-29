@@ -82,6 +82,7 @@
 <p align="center"><b>Confusion Matrix</b></p>
 <p align="center"><img src="Result/confusion_matrix_lstm.png" width="70%"></p>
 
+```mermaid
 flowchart LR
     A[Input Sequence\nX ∈ R^(B × T × 2)\n(SAVI, MNDWI)] --> A1[Optional: Normalize/Standardize\nper-channel]
     A1 --> B[LSTM Layer\nhidden=h, layers=L, batch_first=True]
@@ -91,7 +92,7 @@ flowchart LR
     D --> E[Dense (Linear)\nR^(h → 1)]
     E --> F[Sigmoid]
     F --> G[Output: p(Forest)\nThreshold → Forest/Other]
-
+```
 ---
 
 #### 2. BiLSTM + Attention
@@ -105,6 +106,7 @@ flowchart LR
 <p align="center"><b>Confusion Matrix</b></p>
 <p align="center"><img src="Result/confusion_matrix_bilstm_att.png" width="70%"></p>
 
+```mermaid
 flowchart LR
     A[Input Sequence\nX ∈ R^(B × T × 2)] --> A1[Optional: Normalize/Standardize]
     A1 --> B[Bidirectional LSTM\nhidden=h, layers=L]
@@ -116,7 +118,7 @@ flowchart LR
     G --> H[Dense (Linear)\nR^(2h → 1)]
     H --> I[Sigmoid]
     I --> J[Output: p(Forest)\nThreshold → Forest/Other]
-
+```
 ---
 
 #### 3. Transformer Encoder
@@ -130,6 +132,7 @@ flowchart LR
 <p align="center"><b>Confusion Matrix</b></p>
 <p align="center"><img src="Result/confusion_matrix_transformer.png" width="70%"></p>
 
+```mermaid
 flowchart LR
     A[Input Sequence\nX ∈ R^(B × T × 2)] --> A1[Linear Projection / Embedding\nR^(2 → d_model)]
     A1 --> B[Add Positional Encoding\nPE ∈ R^(T × d_model)]
@@ -145,7 +148,7 @@ flowchart LR
     F --> G[Sigmoid]
     G --> H[Output: p(Forest)\nThreshold → Forest/Other]
 
-
+```
 ---
 
 ## 6. การวิเคราะห์ผลลัพธ์ (Analysis)
