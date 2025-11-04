@@ -1,6 +1,10 @@
 # CPE_KU-204466 Deep Learning Project  
 ## การจำแนกป่าไม้โดยใช้ข้อมูล Time Series จากดาวเทียม
 
+
+## URL DATASET
+https://drive.google.com/drive/folders/1SnsM5gREb6Gz3bl9rRP6uiLBA8gy1AdT?usp=drive_link
+
 ### รายละเอียดโครงการ
 โปรเจกต์นี้เป็นการทดลองจำแนกพื้นที่ป่าไม้ (Forest) ออกจากพื้นที่อื่น (Other) โดยใช้ข้อมูลอนุกรมเวลาจากดัชนีดาวเทียมรายเดือน (SAVI และ MNDWI) เป็นข้อมูลนำเข้าให้กับโมเดล Deep Learning 3 รูปแบบ ได้แก่  
 - LSTM (Baseline)  
